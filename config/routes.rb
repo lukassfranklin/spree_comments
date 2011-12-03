@@ -21,13 +21,19 @@ Rails.application.routes.draw do
 
       resources :shipments do
         member do
-         get :comments
-       end
+          get :comments
+        end
+
+        resources :line_items do
+          member do
+            get :comments
+          end
+        end
       end
     end
   end
 
-#match '/admin/comments' => 'admin/comments', :via => [:get, :post]
-#  match '/admin/comment_types' => 'admin/comment_types', :via => [:get, :post]
+  #match '/admin/comments' => 'admin/comments', :via => [:get, :post]
+  #  match '/admin/comment_types' => 'admin/comment_types', :via => [:get, :post]
 end
 
